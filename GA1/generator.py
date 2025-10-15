@@ -63,12 +63,12 @@ plt.legend()
 plt.grid(True, alpha=0.3)
 plt.show()
 
-print("\n" + "="*50)
+print("\n" + "="*40)
 print("CREATIVITY EVALUATION")
-print("="*50)
+print("="*40)
 
-# Evaluate top 25 recipes
-for i, recipe in enumerate(population[:25]):
+# Evaluate top 20 recipes
+for i, recipe in enumerate(population[:20]):
     creativity = creativity_evaluation.evaluate_creativity(recipe, ga.recipes)
     print(f"\nRecipe {i+1}: {recipe['name']}")
     print(f"  Creativity Score: {creativity['creativity']:.3f}")
@@ -78,8 +78,8 @@ for i, recipe in enumerate(population[:25]):
     print(f"  Fitness: {recipe['fitness']:.3f}")
 
 # Plot creativity vs fitness
-creativities = [creativity_evaluation.evaluate_creativity(r, ga.recipes)['creativity'] for r in population[:50]]
-fitnesses = [r['fitness'] for r in population[:50]]
+creativities = [creativity_evaluation.evaluate_creativity(r, ga.recipes)['creativity'] for r in population[:40]]
+fitnesses = [r['fitness'] for r in population[:40]]
 
 plt.figure(figsize=(10, 6))
 plt.scatter(creativities, fitnesses, alpha=0.6)
@@ -90,9 +90,9 @@ plt.grid(True, alpha=0.3)
 plt.show()
 
 # Print best recipe
-print("\n" + "="*50)
+print("\n" + "="*40)
 print("BEST RECIPE:")
-print("="*50)
+print("="*40)
 best = population[0]
 print(f"Name: {best['name']}")
 print(f"Fitness: {best['fitness']:.3f}")
